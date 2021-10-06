@@ -1,14 +1,14 @@
-﻿namespace NUOVO.Migrations.MigrationsA
+namespace NUOVO.Migrations.MigrationsA
 {
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialASchema : DbMigration
+    public partial class Migrazione1 : DbMigration
     {
         public override void Up()
         {
             CreateTable(
-                "dbo.Clientes",
+                "dbo.Cliente",
                 c => new
                     {
                         ClienteID = c.Int(nullable: false),
@@ -19,7 +19,7 @@
                 .PrimaryKey(t => t.ClienteID);
             
             CreateTable(
-                "dbo.Commessas",
+                "dbo.Commessa",
                 c => new
                     {
                         CommessaID = c.Int(nullable: false),
@@ -30,11 +30,11 @@
                         Importo = c.Single(nullable: false),
                     })
                 .PrimaryKey(t => t.CommessaID)
-                .ForeignKey("dbo.Clientes", t => t.ClienteID, cascadeDelete: true)
+                .ForeignKey("dbo.Cliente", t => t.ClienteID, cascadeDelete: true)
                 .Index(t => t.ClienteID);
             
             CreateTable(
-                "dbo.CommessaStackholders",
+                "dbo.CommessaStackholder",
                 c => new
                     {
                         NumeroRilevamentoID = c.Int(nullable: false),
@@ -47,13 +47,13 @@
                         Note = c.String(),
                     })
                 .PrimaryKey(t => t.NumeroRilevamentoID)
-                .ForeignKey("dbo.Commessas", t => t.CommessaID, cascadeDelete: true)
-                .ForeignKey("dbo.Stackholders", t => t.StackholderID, cascadeDelete: true)
+                .ForeignKey("dbo.Commessa", t => t.CommessaID, cascadeDelete: true)
+                .ForeignKey("dbo.Stackholder", t => t.StackholderID, cascadeDelete: true)
                 .Index(t => t.CommessaID)
                 .Index(t => t.StackholderID);
             
             CreateTable(
-                "dbo.Stackholders",
+                "dbo.Stackholder",
                 c => new
                     {
                         StackholderID = c.Int(nullable: false),
@@ -70,16 +70,16 @@
         
         public override void Down()
         {
-            DropForeignKey("dbo.CommessaStackholders", "StackholderID", "dbo.Stackholders");
-            DropForeignKey("dbo.CommessaStackholders", "CommessaID", "dbo.Commessas");
-            DropForeignKey("dbo.Commessas", "ClienteID", "dbo.Clientes");
-            DropIndex("dbo.CommessaStackholders", new[] { "StackholderID" });
-            DropIndex("dbo.CommessaStackholders", new[] { "CommessaID" });
-            DropIndex("dbo.Commessas", new[] { "ClienteID" });
-            DropTable("dbo.Stackholders");
-            DropTable("dbo.CommessaStackholders");
-            DropTable("dbo.Commessas");
-            DropTable("dbo.Clientes");
+            DropForeignKey("dbo.CommessaStackholder", "StackholderID", "dbo.Stackholder");
+            DropForeignKey("dbo.CommessaStackholder", "CommessaID", "dbo.Commessa");
+            DropForeignKey("dbo.Commessa", "ClienteID", "dbo.Cliente");
+            DropIndex("dbo.CommessaStackholder", new[] { "StackholderID" });
+            DropIndex("dbo.CommessaStackholder", new[] { "CommessaID" });
+            DropIndex("dbo.Commessa", new[] { "ClienteID" });
+            DropTable("dbo.Stackholder");
+            DropTable("dbo.CommessaStackholder");
+            DropTable("dbo.Commessa");
+            DropTable("dbo.Cliente");
         }
     }
 }
