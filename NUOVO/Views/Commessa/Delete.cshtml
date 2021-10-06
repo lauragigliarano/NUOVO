@@ -1,0 +1,76 @@
+﻿@model NUOVO.Models.Commessa
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<div class="pageTitle">
+    <span>Delete</span>
+</div>
+<h3 class="titolo">Are you sure you want to delete this?</h3>
+<div>
+    <div class="pageSubtitle">
+        <h4>Commessa</h4>
+    </div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CommessaID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CommessaID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cliente.RagioneSociale)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cliente.RagioneSociale)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descrizione)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descrizione)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataInizio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataInizio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataFine)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataFine)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Importo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Importo)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

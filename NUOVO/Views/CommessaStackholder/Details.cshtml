@@ -1,0 +1,84 @@
+﻿@model NUOVO.Models.CommessaStackholder
+
+@{
+    ViewBag.Title = "Details";
+}
+<div class="pageTitle">
+    <span>Details</span>
+</div>
+<div>
+    <div class="pageSubtitle">
+        <h4>Rilevamento</h4>
+    </div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Commessa.CommessaID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CommessaID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Stackholder.StackholderID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StackholderID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumeroRilevamentoID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumeroRilevamentoID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataRilevamento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataRilevamento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Potere)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Potere)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Interesse)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Interesse)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Impatto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Impatto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Note)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Note)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.NumeroRilevamentoID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

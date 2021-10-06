@@ -1,0 +1,71 @@
+﻿@model NUOVO.Models.Commessa
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="pageTitle">
+    <span>Details</span>
+</div>
+
+<div>
+    <div class="pageSubtitle">
+        <h4>Commessa</h4>
+    </div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CommessaID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CommessaID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cliente.RagioneSociale)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cliente.RagioneSociale)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descrizione)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descrizione)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataInizio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataInizio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataFine)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataFine)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Importo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Importo)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CommessaID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

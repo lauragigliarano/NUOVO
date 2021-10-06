@@ -1,0 +1,46 @@
+﻿@model NUOVO.Models.Cliente
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="pageTitle">
+    <span>Details</span>
+</div>
+
+<div>
+    <div class="pageSubtitle">
+        <h4>Cliente</h4>
+    </div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RagioneSociale)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RagioneSociale)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telefono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mail)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ClienteID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

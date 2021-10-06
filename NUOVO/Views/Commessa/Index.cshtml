@@ -1,0 +1,72 @@
+﻿@model IEnumerable<NUOVO.Models.Commessa>
+
+    @{
+        ViewBag.Title = "Index";
+    }
+
+    @*using PROGETTO.Models;*@
+
+    <div class="pageTitle">
+        <span>Gestione commesse</span>
+    </div>
+
+    <button>
+        @Html.ActionLink("Create New", "Create")
+    </button>
+    <table class="table">
+        <tr class="thead">
+            <th>
+                @Html.DisplayNameFor(model => model.CommessaID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descrizione)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClienteID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataInizio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataFine)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Importo)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CommessaID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descrizione)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClienteID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataInizio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataFine)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Importo)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.CommessaID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.CommessaID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.CommessaID })
+                </td>
+            </tr>
+        }
+
+    </table>
+
+
+
+

@@ -1,0 +1,73 @@
+﻿@model IEnumerable<NUOVO.Models.Stackholder>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="pageTitle">
+    <span>Gestione stackholders</span>
+</div>
+
+
+<button>
+    @Html.ActionLink("Create New", "Create")
+</button>
+<table class="table">
+    <tr class="thead">
+        <th>
+            @Html.DisplayNameFor(model => model.StackholderID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cognome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telefono)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cellulare)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mail)
+        </th>
+        <th class="note">
+            @Html.DisplayNameFor(model => model.Note)
+        </th>
+        <th class="link"></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.StackholderID)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Nome)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Cognome)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Telefono)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Cellulare)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Mail)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Note)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.StackholderID }) |
+        @Html.ActionLink("Details", "Details", new { id = item.StackholderID }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.StackholderID })
+    </td>
+</tr>
+    }
+
+</table>

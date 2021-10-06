@@ -1,0 +1,78 @@
+﻿@*@model IEnumerable<PROGETTO.Models.Cliente>
+
+@{ 
+    ViewBag.Title = "Index";
+}*@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewBag.Title - Prova</title>
+    <!--<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />-->
+    <link rel="stylesheet" href="~/Content/Site.css" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @using Microsoft.AspNet.Identity
+</head>
+<body>
+
+    <div class="page dashboard">
+        <div class="leftMenu">
+            <div class="menu">
+                 @Html.Partial("_LoginPartial")
+                <ul class="vociMenu">
+                    <li>
+                        <div class="inline">
+                            <span class="voce"> @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="inline">
+                            <span class="voce"> @Html.ActionLink("Gestione Clienti", "Index", "Clienti") </span>
+                        </div>
+                    </li>
+                    <li class="campiFormazione">
+                        <div class="inline">
+                            <span class="voce">@Html.ActionLink("Gestione Commesse", "Index", "Commessa")</span>
+                        </div>
+                    </li>
+                    <li class="campiFormazione">
+                        <div class="inline">
+                            <span class="voce">@Html.ActionLink("Gestione Stackholders", "Index", "Stackholder")</span>
+                        </div>
+                    </li>
+                    <li class="campiFormazione">
+                        <div class="inline">
+                            <span class="voce">@Html.ActionLink("Gestione Rilevamenti", "Index", "CommessaStackholder")</span>
+                        </div>
+                    </li>
+                </ul>
+              
+            </div>
+        </div>
+        <div class="pageBody">
+            <div class="container">
+                @RenderBody()
+                <hr />
+                <footer>
+                    <p>&copy; @DateTime.Now.Year - Entity & Identity Framework</p>
+                </footer>
+            </div>
+        </div>
+       
+    </div>
+
+
+
+    @*<script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>*@
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>
