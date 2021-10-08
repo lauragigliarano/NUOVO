@@ -22,7 +22,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.NumeroRilevamentoID, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.NumeroRilevamentoID, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.NumeroRilevamentoID, new { htmlAttributes = new { @class = "form-control rilevamento" } })
             @Html.ValidationMessageFor(model => model.NumeroRilevamentoID, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -30,7 +30,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.CommessaID, "CommessaID", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.DropDownList("CommessaID", null, htmlAttributes: new { @class = "form-control" })
+            @Html.DropDownList("CommessaID", null, htmlAttributes: new { @class = "form-control select" })
             @Html.ValidationMessageFor(model => model.CommessaID, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -38,7 +38,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.StackholderID, "StackholderID", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.DropDownList("StackholderID", null, htmlAttributes: new { @class = "form-control" })
+            @Html.DropDownList("StackholderID", null, htmlAttributes: new { @class = "form-control select" })
             @Html.ValidationMessageFor(model => model.StackholderID, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -46,7 +46,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.DataRilevamento, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.DataRilevamento, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.DataRilevamento, "{0:dd-MM-yyyy}", new { htmlAttributes = new { @class = "form-control", @Value = DateTime.Now.ToShortDateString() } })
             @Html.ValidationMessageFor(model => model.DataRilevamento, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -54,7 +54,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.Potere, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.Potere, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.Potere, new { htmlAttributes = new { @class = "form-control"} })
             @Html.ValidationMessageFor(model => model.Potere, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -97,4 +97,45 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+<script>
+
+    $(".rilevamento").focus(function () {
+        var commessa = $("#CommessaID").val();
+        var stackholder = $("#StackholderID").val();
+        //alert("Hello I'm an alert box");
+        //alert(stackholder);
+        $.ajax({
+            url: "/CommessaStackholder/GetNumeroRilevamento",
+            type: "POST",
+            contentType: 'application/json; charset=UTF-8',
+            data: JSON.stringify({ CommessaID: commessa, StackholderID: stackholder }),
+            success: function (json) {
+                $("#NumeroRilevamentoID").val(json.numero);
+            },
+            error: function (err) {
+                alert(err)
+            }
+        });
+    });
+
+    $(".select").change(function () {
+        var commessa = $("#CommessaID").val();
+        var stackholder = $("#StackholderID").val();
+        alert(commessa);
+        alert(stackholder);
+        $.ajax({
+            url: "/CommessaStackholder/GetNumeroRilevamento",
+            type: "POST",
+            contentType: 'application/json; charset=UTF-8',
+            data: JSON.stringify({ CommessaID : commessa, StackholderID : stackholder }),
+            success: function (json) {
+                $("#NumeroRilevamentoID").val(json.numero);
+            },
+            error: function (err) {
+                alert(err)
+            }
+        });
+    });
+
+    </script>
 }

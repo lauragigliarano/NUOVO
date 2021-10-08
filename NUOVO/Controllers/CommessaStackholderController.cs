@@ -11,6 +11,7 @@ using NUOVO.Models;
 
 namespace NUOVO.Controllers
 {
+    [Authorize]
     public class CommessaStackholderController : Controller
     {
         private Context db = new Context();
@@ -132,6 +133,19 @@ namespace NUOVO.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        [HttpPost]
+        public JsonResult GetNumeroRilevamento(int CommessaID, int StackholderID)
+        {
+            int numero;
+            CommessaStackholder commessaStackholder = db.CommessaStackholders.Where(q => q.CommessaID == CommessaID && q.StackholderID == StackholderID).OrderByDescending(q => q.NumeroRilevamentoID).FirstOrDefault();
+            if (commessaStackholder != null)
+            {
+                numero = commessaStackholder.NumeroRilevamentoID + 1;
+            }
+            else numero = 1;
+            return Json(new { numero });
         }
     }
 }

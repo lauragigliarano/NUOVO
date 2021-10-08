@@ -107,7 +107,7 @@ namespace NUOVO.Controllers
         //
         // POST: /Account/VerifyCode
         [HttpPost]
-        [AllowAnonymous]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> VerifyCode(VerifyCodeViewModel model)
         {
@@ -174,7 +174,7 @@ namespace NUOVO.Controllers
 
         //
         // GET: /Account/ConfirmEmail
-        [AllowAnonymous]
+        [Authorize]
         public async Task<ActionResult> ConfirmEmail(string userId, string code)
         {
             if (userId == null || code == null)
@@ -187,7 +187,7 @@ namespace NUOVO.Controllers
 
         //
         // GET: /Account/ForgotPassword
-        [AllowAnonymous]
+        [Authorize]
         public ActionResult ForgotPassword()
         {
             return View();
@@ -196,7 +196,7 @@ namespace NUOVO.Controllers
         //
         // POST: /Account/ForgotPassword
         [HttpPost]
-        [AllowAnonymous]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> ForgotPassword(ForgotPasswordViewModel model)
         {
@@ -223,7 +223,7 @@ namespace NUOVO.Controllers
 
         //
         // GET: /Account/ForgotPasswordConfirmation
-        [AllowAnonymous]
+        [Authorize]
         public ActionResult ForgotPasswordConfirmation()
         {
             return View();
@@ -231,7 +231,7 @@ namespace NUOVO.Controllers
 
         //
         // GET: /Account/ResetPassword
-        [AllowAnonymous]
+        [Authorize]
         public ActionResult ResetPassword(string code)
         {
             return code == null ? View("Error") : View();
@@ -240,7 +240,7 @@ namespace NUOVO.Controllers
         //
         // POST: /Account/ResetPassword
         [HttpPost]
-        [AllowAnonymous]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> ResetPassword(ResetPasswordViewModel model)
         {
@@ -265,7 +265,7 @@ namespace NUOVO.Controllers
 
         //
         // GET: /Account/ResetPasswordConfirmation
-        [AllowAnonymous]
+        [Authorize]
         public ActionResult ResetPasswordConfirmation()
         {
             return View();
@@ -274,7 +274,7 @@ namespace NUOVO.Controllers
         //
         // POST: /Account/ExternalLogin
         [HttpPost]
-        [AllowAnonymous]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public ActionResult ExternalLogin(string provider, string returnUrl)
         {
@@ -284,7 +284,7 @@ namespace NUOVO.Controllers
 
         //
         // GET: /Account/SendCode
-        [AllowAnonymous]
+        [Authorize]
         public async Task<ActionResult> SendCode(string returnUrl, bool rememberMe)
         {
             var userId = await SignInManager.GetVerifiedUserIdAsync();
@@ -300,7 +300,7 @@ namespace NUOVO.Controllers
         //
         // POST: /Account/SendCode
         [HttpPost]
-        [AllowAnonymous]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> SendCode(SendCodeViewModel model)
         {
@@ -319,7 +319,7 @@ namespace NUOVO.Controllers
 
         //
         // GET: /Account/ExternalLoginCallback
-        [AllowAnonymous]
+        [Authorize]
         public async Task<ActionResult> ExternalLoginCallback(string returnUrl)
         {
             var loginInfo = await AuthenticationManager.GetExternalLoginInfoAsync();
@@ -350,7 +350,7 @@ namespace NUOVO.Controllers
         //
         // POST: /Account/ExternalLoginConfirmation
         [HttpPost]
-        [AllowAnonymous]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> ExternalLoginConfirmation(ExternalLoginConfirmationViewModel model, string returnUrl)
         {
@@ -397,7 +397,7 @@ namespace NUOVO.Controllers
 
         //
         // GET: /Account/ExternalLoginFailure
-        [AllowAnonymous]
+        [Authorize]
         public ActionResult ExternalLoginFailure()
         {
             return View();

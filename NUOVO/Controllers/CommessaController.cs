@@ -11,6 +11,7 @@ using NUOVO.Models;
 
 namespace NUOVO.Controllers
 {
+    [Authorize]
     public class CommessaController : Controller
     {
         private Context db = new Context();
@@ -51,6 +52,7 @@ namespace NUOVO.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "CommessaID,Descrizione,ClienteID,DataInizio,DataFine,Importo")] Commessa commessa)
         {
+
             if (ModelState.IsValid)
             {
                 db.Commessa.Add(commessa);
