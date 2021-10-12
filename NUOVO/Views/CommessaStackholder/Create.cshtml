@@ -9,7 +9,7 @@
 </div>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     
@@ -23,73 +23,73 @@
         @Html.LabelFor(model => model.NumeroRilevamentoID, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.NumeroRilevamentoID, new { htmlAttributes = new { @class = "form-control" } })
-           
             @Html.ValidationMessageFor(model => model.NumeroRilevamentoID, "", new { @class = "text-danger" })
         </div>
     </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.CommessaID, "CommessaID", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownList("CommessaID", null, htmlAttributes: new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.CommessaID, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.CommessaID, "CommessaID", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("CommessaID", null, htmlAttributes: new { @class = "form-control select" })
+                @Html.ValidationMessageFor(model => model.CommessaID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.StackholderID, "StackholderID", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("StackholderID", null, htmlAttributes: new { @class = "form-control select" })
+                @Html.ValidationMessageFor(model => model.StackholderID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DataRilevamento, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DataRilevamento, "{0:dd-MM-yyyy}", new { htmlAttributes = new { @class = "form-control  oggi" } })
+                @Html.ValidationMessageFor(model => model.DataRilevamento, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Potere, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Potere, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Potere, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Interesse, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Interesse, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Interesse, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Impatto, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Impatto, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Impatto, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Note, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Note, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Note, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
         </div>
     </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.StackholderID, "StackholderID", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownList("StackholderID", null, htmlAttributes: new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.StackholderID, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.DataRilevamento, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.DataRilevamento, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.DataRilevamento, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.Potere, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Potere, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Potere, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.Interesse, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Interesse, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Interesse, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.Impatto, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Impatto, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Impatto, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.Note, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.TextAreaFor(model => model.Note, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Note, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Create" class="btn btn-default" />
-        </div>
-    </div>
-</div>
 }
 
 <div>
@@ -98,4 +98,69 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+
+        $(".rilevamento").dblclick(function () {
+            var commessa = $("#CommessaID").val();
+            var stackholder = $("#StackholderID").val();
+            alert(commessa);
+            alert(stackholder);
+            $.ajax({
+                url: "/CommessaStackholder/GetNumeroRilevamento",
+                type: "POST",
+                contentType: 'application/json; charset=UTF-8',
+                data: JSON.stringify({ CommessaID: commessa, StackholderID: stackholder }),
+                success: function (json) {
+                    $("#NumeroRilevamentoID").val(json.numero);
+                },
+                error: function (err) {
+                    alert(err)
+                }
+            });
+        });
+
+        $(".select").change(function () {
+            var commessa = $("#CommessaID").val();
+            var stackholder = $("#StackholderID").val();
+            alert(commessa);
+            alert(stackholder);
+            $.ajax({
+                url: "/CommessaStackholder/GetNumeroRilevamento",
+                type: "POST",
+                contentType: 'application/json; charset=UTF-8',
+                data: JSON.stringify({ CommessaID: commessa, StackholderID: stackholder }),
+                success: function (json) {
+                    $("#NumeroRilevamentoID").val(json.numero);
+                },
+                error: function (err) {
+                    alert(err)
+                }
+            });
+        });
+
+        $(".oggi").dblclick(function () {
+            var commessa = $("#CommessaID").val();
+            var stackholder = $("#StackholderID").val();
+            alert("Stai impostando la data odierna.");
+            //alert(stackholder);
+            $.ajax({
+                url: "/CommessaStackholder/SetDataOdierna",
+                type: "POST",
+                contentType: 'application/json; charset=UTF-8',
+                data: JSON.stringify({ CommessaID: commessa, StackholderID: stackholder }),
+                success: function (json) {
+                var today = json.anno + "-" + json.mese + "-" + json.giorno;
+                $("#DataRilevamento").val(today);
+            },
+                error: function (err) {
+                    alert(err)
+                }
+            });
+        });
+
+    </script>
+
+
 }

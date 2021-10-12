@@ -46,5 +46,6 @@ namespace NUOVO.Models
 
         public Commessa Commessa { get; set; }
         public Stackholder Stackholder { get; set; }
+
     }
 }
