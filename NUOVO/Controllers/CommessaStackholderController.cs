@@ -31,7 +31,7 @@ namespace NUOVO.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CommessaStackholder commessaStackholder = db.CommessaStackholders.Find(id);
+            CommessaStackholder commessaStackholder = db.CommessaStackholders.SingleOrDefault(m => m.NumeroRilevamentoID == id);
             if (commessaStackholder == null)
             {
                 return HttpNotFound();
@@ -73,7 +73,7 @@ namespace NUOVO.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CommessaStackholder commessaStackholder = db.CommessaStackholders.Find(id);
+            CommessaStackholder commessaStackholder = db.CommessaStackholders.SingleOrDefault(m => m.NumeroRilevamentoID == id);
             if (commessaStackholder == null)
             {
                 return HttpNotFound();
@@ -108,7 +108,7 @@ namespace NUOVO.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CommessaStackholder commessaStackholder = db.CommessaStackholders.Find(id);
+            CommessaStackholder commessaStackholder = db.CommessaStackholders.SingleOrDefault(m => m.NumeroRilevamentoID == id);
             if (commessaStackholder == null)
             {
                 return HttpNotFound();
@@ -121,7 +121,7 @@ namespace NUOVO.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            CommessaStackholder commessaStackholder = db.CommessaStackholders.Find(id);
+            CommessaStackholder commessaStackholder = db.CommessaStackholders.SingleOrDefault(m => m.NumeroRilevamentoID == id);
             db.CommessaStackholders.Remove(commessaStackholder);
             db.SaveChanges();
             return RedirectToAction("Index");
