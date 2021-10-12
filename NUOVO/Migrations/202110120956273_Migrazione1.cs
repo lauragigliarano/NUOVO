@@ -26,7 +26,7 @@ namespace NUOVO.Migrations.MigrationsA
                         Descrizione = c.String(maxLength: 50),
                         ClienteID = c.Int(nullable: false),
                         DataInizio = c.DateTime(nullable: false),
-                        DataFine = c.DateTime(nullable: true),
+                        DataFine = c.DateTime(),
                         Importo = c.Single(nullable: false),
                     })
                 .PrimaryKey(t => t.CommessaID)
@@ -37,16 +37,16 @@ namespace NUOVO.Migrations.MigrationsA
                 "dbo.CommessaStackholder",
                 c => new
                     {
-                        NumeroRilevamentoID = c.Int(nullable: false),
                         CommessaID = c.Int(nullable: false),
                         StackholderID = c.Int(nullable: false),
+                        NumeroRilevamentoID = c.Int(nullable: false),
                         DataRilevamento = c.DateTime(nullable: false),
                         Interesse = c.Int(nullable: false),
                         Potere = c.Int(nullable: false),
                         Impatto = c.Int(nullable: false),
                         Note = c.String(),
                     })
-                .PrimaryKey(t => t.NumeroRilevamentoID)
+                .PrimaryKey(t => new { t.CommessaID, t.StackholderID, t.NumeroRilevamentoID })
                 .ForeignKey("dbo.Commessa", t => t.CommessaID, cascadeDelete: true)
                 .ForeignKey("dbo.Stackholder", t => t.StackholderID, cascadeDelete: true)
                 .Index(t => t.CommessaID)

@@ -7,27 +7,29 @@ namespace NUOVO.Models
 {
     public class CommessaStackholder
     {
-        [ForeignKey("Commessa")]
+        [Key]
+        [Column(Order = 1)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Display(Name = "Commessa")]
         [Required]
         public int CommessaID { get; set; }
 
-        [ForeignKey("Stackholder")]
+        [Key]
+        [Column(Order = 2)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Display(Name = "Stackholder")]
         [Required]
         public int StackholderID { get; set; }
 
         [Key]
+        [Column(Order = 3)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Display(Name = "Numero Rilevamento")]
         //[Range(1, 9999)]
         [Required]
         public int NumeroRilevamentoID { get; set; }
 
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Data Rilevamento")]
         public DateTime DataRilevamento { get; set; }
 

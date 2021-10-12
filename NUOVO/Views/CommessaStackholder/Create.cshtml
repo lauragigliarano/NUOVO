@@ -22,7 +22,7 @@
 
 
     <div class="form-group">
-        @Html.LabelFor(model => model.CommessaID, "CommessaID", htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.CommessaID, "Descrizione commessa", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.DropDownList("CommessaID", null, htmlAttributes: new { @class = "form-control select" })
             @Html.ValidationMessageFor(model => model.CommessaID, "", new { @class = "text-danger" })
@@ -30,7 +30,7 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.StackholderID, "StackholderID", htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.StackholderID, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.DropDownList("StackholderID", null, htmlAttributes: new { @class = "form-control select" })
             @Html.ValidationMessageFor(model => model.StackholderID, "", new { @class = "text-danger" })
@@ -40,7 +40,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.NumeroRilevamentoID, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.NumeroRilevamentoID, new { htmlAttributes = new { @class = "form-control", @disabled="disabled" } })
+            @Html.EditorFor(model => model.NumeroRilevamentoID, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.NumeroRilevamentoID, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -48,7 +48,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.DataRilevamento, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.DataRilevamento, "{0:dd-MM-yyyy}", new { htmlAttributes = new { @class = "form-control  oggi" } })
+            @Html.EditorFor(model => model.DataRilevamento, "{0:dd-MM-yyyy}", new { htmlAttributes = new { @class = "form-control"} })
             @Html.ValidationMessageFor(model => model.DataRilevamento, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -140,7 +140,7 @@
                 contentType: 'application/json; charset=UTF-8',
                 data: JSON.stringify({ CommessaID: commessa, StackholderID: stackholder }),
                 success: function (json) {
-                var today = json.anno + "-" + json.mese + "-" + json.giorno;
+                var today = json.giorno + "/" + json.mese + "/" + json.anno;
                 $("#DataRilevamento").val(today);
             },
                 error: function (err) {
@@ -159,7 +159,7 @@
                 error: function (err) {
                     alert(err)
                 }
-            });s
+            });
         });
 
     </script>

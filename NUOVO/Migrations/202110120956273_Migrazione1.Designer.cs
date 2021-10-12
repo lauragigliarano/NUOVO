@@ -13,7 +13,7 @@ namespace NUOVO.Migrations.MigrationsA
         
         string IMigrationMetadata.Id
         {
-            get { return "202110060949140_Migrazione1"; }
+            get { return "202110120956273_Migrazione1"; }
         }
         
         string IMigrationMetadata.Source

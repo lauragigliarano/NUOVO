@@ -21,14 +21,12 @@ namespace NUOVO.Models
         [Display(Name = "Cliente ID")]
         public int ClienteID { get; set; }
 
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Data Inizio")]
         public DateTime DataInizio { get; set; }
 
         [DateGreaterThan("DataInizio")]
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Data Fine")]
         public DateTime? DataFine { get; set; }
 
