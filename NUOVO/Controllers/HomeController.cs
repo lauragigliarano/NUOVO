@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace NUOVO.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         public ActionResult Index()

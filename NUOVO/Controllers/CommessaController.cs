@@ -131,5 +131,13 @@ namespace NUOVO.Controllers
             }
             base.Dispose(disposing);
         }
+
+        [HttpPost]
+        public JsonResult CheckDataFine(DateTime inizio, DateTime fine)
+        {
+            int numero = DateTime.Compare(inizio, fine);
+
+            return Json(new { numero });
+        }
     }
 }

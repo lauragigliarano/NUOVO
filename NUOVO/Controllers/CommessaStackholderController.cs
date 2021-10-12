@@ -147,5 +147,17 @@ namespace NUOVO.Controllers
             else numero = 1;
             return Json(new { numero });
         }
+
+        [HttpPost]
+        public JsonResult SetDataOdierna(int CommessaID, int StackholderID)
+        {
+            CommessaStackholder commessaStackholder = db.CommessaStackholders.Where(q => q.CommessaID == CommessaID && q.StackholderID == StackholderID).OrderByDescending(q => q.NumeroRilevamentoID).FirstOrDefault();
+            int giorno = DateTime.Now.Day;
+            int mese = DateTime.Now.Month;
+            int anno = DateTime.Now.Year;
+
+            return Json(new { giorno, mese, anno });
+        }
+
     }
 }

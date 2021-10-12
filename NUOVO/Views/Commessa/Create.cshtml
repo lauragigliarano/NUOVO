@@ -66,7 +66,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.DataFine, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.DataFine, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.DataFine, new { htmlAttributes = new { @class = "form-control controllo" } })
             @Html.ValidationMessageFor(model => model.DataFine, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -94,3 +94,26 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
+
+@*<script>
+    $(".controllo").change(function () {
+        var inizio = $("#DataInizio").val();
+        var fine = $("#DataFine").val();
+        alert(inizio);
+        alert(fine);
+        $.ajax({
+            url: "/Commessa/CheckDataFine",
+            type: "POST",
+            contentType: 'application/json; charset=UTF-8',
+            data: JSON.stringify({ inizio: inizio, fine: fine }),
+            success: function (json) {
+                var numero = json.numero;
+                if (numero <= 0) {
+                    alert("La data fine non può essere precedente alla data inizio")
+                }
+            },
+            error: function (err) {
+                alert(err)
+            }
+        });
+</script>*@
