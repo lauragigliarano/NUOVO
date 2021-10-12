@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using NUOVO.DAL;
 using NUOVO.Models;
 
+
 namespace NUOVO.Controllers
 {
     [Authorize]

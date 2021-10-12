@@ -42,13 +42,13 @@
                 var commessa = new List<Commessa>
                 {
                     new Commessa{CommessaID=1050, Descrizione="Chemistry",
-                        DataInizio=DateTime.Parse("2005-09-01"), DataFine=DateTime.Parse("2006-09-01"),
+                        DataInizio=DateTime.Parse("2005-09-01"),DataFine=DateTime.Parse("2006-09-01"),
                         Importo = 10, ClienteID = cliente.Single(c => c.ClienteID == 1159 ).ClienteID, CommessaStackholders=new List<CommessaStackholder>()},
                     new Commessa{CommessaID=1030, Descrizione="Abbattimento",
-                        DataInizio=DateTime.Parse("2015-09-01"), DataFine=DateTime.Parse("2015-10-01"),
+                        DataInizio=DateTime.Parse("2015-09-01"), /*DataFine=DateTime.Parse("2015-10-01")*/
                         Importo = 10, ClienteID = cliente.Single(c => c.ClienteID == 1159 ).ClienteID, CommessaStackholders=new List<CommessaStackholder>() },
                     new Commessa{CommessaID=1040, Descrizione="Cablaggio",
-                        DataInizio=DateTime.Parse("2006-03-01"), DataFine=DateTime.Parse("2006-07-01"),
+                        DataInizio=DateTime.Parse("2006-03-01"), /*DataFine=DateTime.Parse("2006-07-01")*/
                         Importo = 10, ClienteID = cliente.Single(c => c.ClienteID == 1149 ).ClienteID, CommessaStackholders=new List<CommessaStackholder>()},
                 };
                 commessa.ForEach(s => context.Commessa.Add(s));

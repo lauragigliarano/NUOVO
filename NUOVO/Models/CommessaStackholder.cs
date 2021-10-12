@@ -22,7 +22,7 @@ namespace NUOVO.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Display(Name = "Numero Rilevamento")]
-        [Range(1, 9999)]
+        //[Range(1, 9999)]
         [Required]
         public int NumeroRilevamentoID { get; set; }
 

@@ -26,10 +26,11 @@ namespace NUOVO.Models
         [Display(Name = "Data Inizio")]
         public DateTime DataInizio { get; set; }
 
+        [DateGreaterThan("DataInizio")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Data Fine")]
-        public DateTime DataFine { get; set; }
+        public DateTime? DataFine { get; set; }
 
 
         [DataType(DataType.Text)]

@@ -784,3 +784,15 @@ table {
         padding-left: 20px;
         border-right: 1px solid white;
     }
+
+#NumeroRilevamentoID[type=number]::-webkit-inner-spin-button,
+#NumeroRilevamentoID[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+
+#NumeroRilevamentoID[type=number] {
+    -moz-appearance: textfield;
+}
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control{
+    background-color: white;
+}

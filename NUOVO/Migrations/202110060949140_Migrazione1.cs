@@ -26,7 +26,7 @@ namespace NUOVO.Migrations.MigrationsA
                         Descrizione = c.String(maxLength: 50),
                         ClienteID = c.Int(nullable: false),
                         DataInizio = c.DateTime(nullable: false),
-                        DataFine = c.DateTime(nullable: false),
+                        DataFine = c.DateTime(nullable: true),
                         Importo = c.Single(nullable: false),
                     })
                 .PrimaryKey(t => t.CommessaID)
