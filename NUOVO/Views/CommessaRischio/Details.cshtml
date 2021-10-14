@@ -1,0 +1,91 @@
+﻿@model NUOVO.Models.CommessaRischio
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CommessaRischio</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CommessaID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Commessa.Descrizione)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataRilevamento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataRilevamento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataAggiornamento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataAggiornamento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Voto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Voto)
+        </dd>
+
+        <dt>
+            Priorità
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Priorita)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Importo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Importo)
+        </dd>
+
+        <dt>
+            Probabilità
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Probabilita)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Impatto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Impatto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Strategia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Strategia)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Progressivo }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

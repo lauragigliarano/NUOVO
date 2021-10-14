@@ -66,16 +66,38 @@ namespace NUOVO.Migrations.MigrationsA
                     })
                 .PrimaryKey(t => t.StackholderID);
             
+            CreateTable(
+                "dbo.CommessaRischio",
+                c => new
+                    {
+                        Progressivo = c.Int(nullable: false),
+                        CommessaID = c.Int(nullable: false),
+                        DataRilevamento = c.DateTime(nullable: false),
+                        DataAggiornamento = c.DateTime(),
+                        Voto = c.Int(nullable: false),
+                        Priorita = c.Int(nullable: false),
+                        Importo = c.Single(nullable: false),
+                        Probabilita = c.String(),
+                        Impatto = c.String(),
+                        Strategia = c.String(),
+                    })
+                .PrimaryKey(t => new { t.Progressivo, t.CommessaID })
+                .ForeignKey("dbo.Commessa", t => t.CommessaID, cascadeDelete: true)
+                .Index(t => t.CommessaID);
+            
         }
         
         public override void Down()
         {
+            DropForeignKey("dbo.CommessaRischio", "CommessaID", "dbo.Commessa");
             DropForeignKey("dbo.CommessaStackholder", "StackholderID", "dbo.Stackholder");
             DropForeignKey("dbo.CommessaStackholder", "CommessaID", "dbo.Commessa");
             DropForeignKey("dbo.Commessa", "ClienteID", "dbo.Cliente");
+            DropIndex("dbo.CommessaRischio", new[] { "CommessaID" });
             DropIndex("dbo.CommessaStackholder", new[] { "StackholderID" });
             DropIndex("dbo.CommessaStackholder", new[] { "CommessaID" });
             DropIndex("dbo.Commessa", new[] { "ClienteID" });
+            DropTable("dbo.CommessaRischio");
             DropTable("dbo.Stackholder");
             DropTable("dbo.CommessaStackholder");
             DropTable("dbo.Commessa");

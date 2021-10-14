@@ -21,6 +21,7 @@ namespace NUOVO.DAL
         public DbSet<Stackholder> Stackholder { get; set; }
 
         public DbSet<CommessaStackholder> CommessaStackholders { get; set; }
+        public DbSet<CommessaRischio> CommessaRischio { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -32,5 +33,6 @@ namespace NUOVO.DAL
             .HasForeignKey(p => p.ClienteID);
 
         }
+
     }
 }

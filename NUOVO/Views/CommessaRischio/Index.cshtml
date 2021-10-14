@@ -1,0 +1,82 @@
+﻿@model IEnumerable<NUOVO.Models.CommessaRischio>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Commessa.Descrizione)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataRilevamento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataAggiornamento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Voto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Priorita)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Importo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Probabilita)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Impatto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Strategia)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Commessa.Descrizione)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataRilevamento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataAggiornamento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Voto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Priorita)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Importo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Probabilita)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Impatto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Strategia)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.Progressivo }) |
+            @Html.ActionLink("Details", "Details", new {  id=item.Progressivo  }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Progressivo })
+        </td>
+    </tr>
+}
+
+</table>
