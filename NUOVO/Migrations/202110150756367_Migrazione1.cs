@@ -72,6 +72,7 @@ namespace NUOVO.Migrations.MigrationsA
                     {
                         Progressivo = c.Int(nullable: false),
                         CommessaID = c.Int(nullable: false),
+                        NomeRischio = c.String(nullable: false, maxLength: 128),
                         DataRilevamento = c.DateTime(nullable: false),
                         DataAggiornamento = c.DateTime(),
                         Voto = c.Int(nullable: false),
@@ -81,7 +82,7 @@ namespace NUOVO.Migrations.MigrationsA
                         Impatto = c.String(),
                         Strategia = c.String(),
                     })
-                .PrimaryKey(t => new { t.Progressivo, t.CommessaID })
+                .PrimaryKey(t => new { t.Progressivo, t.CommessaID, t.NomeRischio })
                 .ForeignKey("dbo.Commessa", t => t.CommessaID, cascadeDelete: true)
                 .Index(t => t.CommessaID);
             

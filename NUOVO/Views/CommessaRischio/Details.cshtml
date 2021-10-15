@@ -5,10 +5,14 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<div class="pageTitle">
+    <span>Details</span>
+</div>
 
 <div>
-    <h4>CommessaRischio</h4>
+    <div class="pageSubtitle">
+        <h4>Commessa Rischio</h4>
+    </div>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -25,6 +29,14 @@
 
         <dd>
             @Html.DisplayFor(model => model.DataRilevamento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NomeRischio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NomeRischio)
         </dd>
 
         <dt>

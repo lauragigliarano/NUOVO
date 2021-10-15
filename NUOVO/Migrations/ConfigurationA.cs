@@ -76,6 +76,17 @@
                 };
                 commessastackholder.ForEach(s => context.CommessaStackholders.Add(s));
                 context.SaveChanges();
+
+
+                var commessarischio = new List<CommessaRischio>
+                {
+                    new CommessaRischio{ NomeRischio="Pandemia", CommessaID=commessa.FirstOrDefault(c => c.Descrizione == "Cablaggio" ).CommessaID , Progressivo=5, DataRilevamento=DateTime.Parse("2006-03-01"), DataAggiornamento=DateTime.Parse("2006-03-05"), Voto=2, Priorita=5, Importo = 12.5f, Probabilita="Rare", Impatto="Catastrophic", Strategia="Contain" },
+                    new CommessaRischio{  NomeRischio="Dimissioni", CommessaID=commessa.FirstOrDefault(c => c.Descrizione == "Abbattimento" ).CommessaID , Progressivo=3, DataRilevamento=DateTime.Parse("2015-11-22"), DataAggiornamento=DateTime.Parse("2016-12-05"), Voto=3, Priorita=1, Importo = 107.35f, Probabilita="Possible", Impatto="Major", Strategia="Transfer" },
+                    new CommessaRischio{  NomeRischio="Pandemia operai", CommessaID=commessa.FirstOrDefault(c => c.Descrizione == "Chemistry" ).CommessaID , Progressivo=1, DataRilevamento=DateTime.Parse("2018-06-16"), DataAggiornamento=DateTime.Parse("2020-09-20"), Voto=4, Priorita=3, Importo = 1273.44f, Probabilita="Rare", Impatto="Minor", Strategia="Avoid" }
+                };
+                commessarischio.ForEach(s => context.CommessaRischio.Add(s));
+                context.SaveChanges();
+
             }
             catch (DbEntityValidationException dbEx)
             {

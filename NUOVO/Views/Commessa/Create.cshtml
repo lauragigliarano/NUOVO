@@ -9,82 +9,82 @@
 </div>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
-<div class="form-horizontal">
-    <div class="pageSubtitle">
-        <h4>Commessa</h4>
-    </div>
-    <hr />
 
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(model => model.Descrizione, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.TextAreaFor(model => model.Descrizione, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Descrizione, "", new { @class = "text-danger" })
+    <div class="form-horizontal">
+        <div class="pageSubtitle">
+            <h4>Commessa</h4>
         </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(model => model.CommessaID, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.CommessaID, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.CommessaID, "", new { @class = "text-danger" })
-        </div>
-    </div>
+        <hr />
 
-    @*<select>
-            @foreach (var item in Model)
-            {
-                <option value="item">@Html.DisplayFor(modelItem => item.ClienteID)</option>
-                if (item.ClienteID == 1159)
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Descrizione, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Descrizione, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Descrizione, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.CommessaID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CommessaID, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CommessaID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @*<select>
+                @foreach (var item in Model)
                 {
-                    @Html.DisplayFor(modelItem => item.ClienteID)
+                    <option value="item">@Html.DisplayFor(modelItem => item.ClienteID)</option>
+                    if (item.ClienteID == 1159)
+                    {
+                        @Html.DisplayFor(modelItem => item.ClienteID)
 
+                    }
                 }
-            }
-        </select>*@
+            </select>*@
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.ClienteID, "Cliente", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownList("ClienteID", null, htmlAttributes: new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.ClienteID, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.ClienteID, "Cliente", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("ClienteID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ClienteID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DataInizio, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DataInizio, "{0:dd-MM-yyyy}", new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DataInizio, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DataFine, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DataFine, new { htmlAttributes = new { @class = "form-control controllo" } })
+                @Html.ValidationMessageFor(model => model.DataFine, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Importo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Importo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Importo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
         </div>
     </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.DataInizio, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.DataInizio, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.DataInizio, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.DataFine, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.DataFine, new { htmlAttributes = new { @class = "form-control controllo" } })
-            @Html.ValidationMessageFor(model => model.DataFine, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.Importo, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Importo, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Importo, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Create" class="btn btn-default" />
-        </div>
-    </div>
-</div>
 }
 
 <div>
@@ -93,27 +93,15 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
-}
-
-@*<script>
-    $(".controllo").change(function () {
-        var inizio = $("#DataInizio").val();
-        var fine = $("#DataFine").val();
-        alert(inizio);
-        alert(fine);
-        $.ajax({
-            url: "/Commessa/CheckDataFine",
-            type: "POST",
-            contentType: 'application/json; charset=UTF-8',
-            data: JSON.stringify({ inizio: inizio, fine: fine }),
-            success: function (json) {
-                var numero = json.numero;
-                if (numero <= 0) {
-                    alert("La data fine non può essere precedente alla data inizio")
-                }
-            },
-            error: function (err) {
-                alert(err)
+    @Scripts.Render("~/Scripts/jquery-3.1.1.js")
+    @Scripts.Render("~/Scripts/jquery.validate.min.js")
+    @Scripts.Render("~/Scripts/jquery.validate.unobtrusive.min.js")
+    @Scripts.Render("~/Scripts/moment.js")
+    <script>
+        $(function () {
+            $.validator.methods.date = function (value, element) {
+                return this.optional(element) || moment(value, "DD.MM.YYYY", true).isValid();
             }
-        });
-</script>*@
+});
+    </script>
+}

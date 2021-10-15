@@ -30,6 +30,7 @@ namespace NUOVO.Models
         public int NumeroRilevamentoID { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        [DataType(DataType.Date)]
         [Display(Name = "Data Rilevamento")]
         public DateTime DataRilevamento { get; set; }
 

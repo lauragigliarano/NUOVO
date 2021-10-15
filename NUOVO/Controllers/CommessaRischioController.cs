@@ -8,7 +8,6 @@ using System.Web;
 using System.Web.Mvc;
 using NUOVO.DAL;
 using NUOVO.Models;
-using NUOVO.ViewModels;
 
 namespace NUOVO.Controllers
 {
@@ -51,7 +50,7 @@ namespace NUOVO.Controllers
         // Per altri dettagli, vedere https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Progressivo,CommessaID,DataRilevamento,DataAggiornamento,Voto,Priorita,Importo,Probabilita,Impatto,Strategia")] CommessaRischio commessaRischio)
+        public ActionResult Create([Bind(Include = "NomeRischio,Progressivo,CommessaID,DataRilevamento,DataAggiornamento,Voto,Priorita,Importo,Probabilita,Impatto,Strategia")] CommessaRischio commessaRischio)
         {
             if (ModelState.IsValid)
             {
@@ -133,5 +132,6 @@ namespace NUOVO.Controllers
             }
             base.Dispose(disposing);
         }
+
     }
 }

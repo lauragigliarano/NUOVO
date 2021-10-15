@@ -10,6 +10,17 @@ a.navbar-brand {
     word-break: break-all;
 }
 
+th.title {
+    border-left: none !important;
+}
+th.vuota {
+    border-right: none !important;
+    border-bottom: none !important;
+}
+td.primo {
+    border-top: none !important;
+}
+
 /* Provide sufficient contrast against white background */
 a {
     color: #083561;
@@ -651,6 +662,8 @@ input[type=file]::file-selector-button {
     color: #6B6B6B;
 }
 
+
+
 textarea {
     width: calc( 100% - 0px);
     text-decoration: none;
@@ -691,6 +704,15 @@ select::placeholder {
     font-size: 13px;
     font-weight: 400;
     color: #6B6B6B;
+}
+#Probabilita {
+    width: 100%;
+}
+#Impatto {
+    width: 100%;
+}
+#Strategia {
+    width: 100%;
 }
 
 label {
