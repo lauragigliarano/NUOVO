@@ -11,6 +11,7 @@ using NUOVO.Models;
 
 namespace NUOVO.Controllers
 {
+    [Authorize]
     public class CommessaRischioController : Controller
     {
         private Context db = new Context();

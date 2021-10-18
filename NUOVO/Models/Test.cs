@@ -40,13 +40,5 @@ namespace NUOVO.Models
                 return ValidationResult.Success;
             }
         }
-
-        //public class Test
-        //{
-        //    [DateGreaterThan("ReturnDate")]
-        //    public DateTime DataInizio { get; set; }
-
-        //    public DateTime DataFine { get; set; }
-        //}
     }
 }
