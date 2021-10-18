@@ -8,7 +8,8 @@
     using System.Data.Entity.Migrations;
     using System.Linq;
     using System.Data.Entity.Validation;
-
+    using System.Collections;
+    using System.Globalization;
     internal sealed class ConfigurationA : DbMigrationsConfiguration<NUOVO.DAL.Context>
     {
         public ConfigurationA()
@@ -98,6 +99,14 @@
                     }
                 }
             }
+        }
+        public static void Main()
+        {
+            Console.WriteLine("CurrentCulture is {0}.", CultureInfo.CurrentCulture.Name);
+            // Creates and initializes the CultureInfo which uses the international sort.
+            CultureInfo myCIintl = new CultureInfo("it-IT", false);
+            Console.WriteLine("CurrentCulture is now {0}.", CultureInfo.CurrentCulture.Name);
+
         }
     }
 }

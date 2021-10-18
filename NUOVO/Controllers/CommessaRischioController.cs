@@ -8,6 +8,8 @@ using System.Web;
 using System.Web.Mvc;
 using NUOVO.DAL;
 using NUOVO.Models;
+using System.Globalization;
+using System.Threading;
 
 namespace NUOVO.Controllers
 {
@@ -42,6 +44,11 @@ namespace NUOVO.Controllers
         // GET: CommessaRischio/Create
         public ActionResult Create()
         {
+            Console.WriteLine("CurrentCulture is {0}.", CultureInfo.CurrentCulture.Name);
+            // Creates and initializes the CultureInfo which uses the international sort.
+            CultureInfo myCIintl = new CultureInfo("it-IT", false);
+            Console.WriteLine("CurrentCulture is now {0}.", CultureInfo.CurrentCulture.Name);
+
             ViewBag.CommessaID = new SelectList(db.Commessa, "CommessaID", "Descrizione");
             return View();
         }
@@ -85,7 +92,7 @@ namespace NUOVO.Controllers
         // Per altri dettagli, vedere https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Progressivo,CommessaID,DataRilevamento,DataAggiornamento,Voto,Priorita,Importo,Probabilita,Impatto,Strategia")] CommessaRischio commessaRischio)
+        public ActionResult Edit([Bind(Include = "NomeRischio,Progressivo,CommessaID,DataRilevamento,DataAggiornamento,Voto,Priorita,Importo,Probabilita,Impatto,Strategia")] CommessaRischio commessaRischio)
         {
             if (ModelState.IsValid)
             {
@@ -93,6 +100,10 @@ namespace NUOVO.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            Console.WriteLine("CurrentCulture is {0}.", CultureInfo.CurrentCulture.Name);
+            // Creates and initializes the CultureInfo which uses the international sort.
+            CultureInfo myCIintl = new CultureInfo("it-IT", false);
+            Console.WriteLine("CurrentCulture is now {0}.", CultureInfo.CurrentCulture.Name);
             ViewBag.CommessaID = new SelectList(db.Commessa, "CommessaID", "Descrizione", commessaRischio.CommessaID);
             return View(commessaRischio);
         }

@@ -29,11 +29,13 @@ namespace NUOVO.Models
         [Required]
         public string NomeRischio { get; set; }
 
+        [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Data Rilevamento")]
         public DateTime DataRilevamento { get; set; }
 
         [DateGreaterThan("DataRilevamento")]
+        [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Data Aggiornamento")]
         public DateTime? DataAggiornamento { get; set; }

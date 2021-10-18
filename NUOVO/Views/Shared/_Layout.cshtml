@@ -86,6 +86,33 @@
         <script src="~/Scripts/globalize/globalize.js"></script>
         <script src="~/Scripts/globalize/cultures/globalize.culture.@(System.Threading.Thread.CurrentThread.CurrentCulture.Name).js"></script>
         <script>
+    //$.validator.methods.number = function (value, element) {
+    //    return this.optional(element) ||
+    //        !isNaN(Globalize.parseFloat(value));
+    //}
+    $(document).ready(function () {
+        Globalize.culture('@(System.Threading.Thread.CurrentThread.CurrentCulture.Name)');
+    });
+        </script>
+        <script>
+            //jQuery.extend(jQuery.validator.methods, {
+            //    range: function (value, element, param) {
+            //        //Use the Globalization plugin to parse the value
+            //        var val = Globalize.parseFloat(value);
+            //        return this.optional(element) || (
+            //            val >= param[0] && val <= param[1]);
+            //    }
+            //});
+            $.validator.methods.date = function (value, element) {
+                return this.optional(element) ||
+                    Globalize.parseDate(value) ||
+                    Globalize.parseDate(value, "yyyy-MM-dd");
+            }
+        </script>
+
+        <script src="~/Scripts/globalize/globalize.js"></script>
+        @*<script src="~/Scripts/globalize/cultures/globalize.culture.@(System.Threading.Thread.CurrentThread.CurrentCulture.GetCultureInfo("en-US")).js"></script>*@
+        <script>
     $.validator.methods.number = function (value, element) {
         return this.optional(element) ||
             !isNaN(Globalize.parseFloat(value));
@@ -95,14 +122,14 @@
     });
         </script>
         <script>
-            jQuery.extend(jQuery.validator.methods, {
-                range: function (value, element, param) {
-                    //Use the Globalization plugin to parse the value
-                    var val = Globalize.parseFloat(value);
-                    return this.optional(element) || (
-                        val >= param[0] && val <= param[1]);
-                }
-            });
+            //jQuery.extend(jQuery.validator.methods, {
+            //    range: function (value, element, param) {
+            //        //Use the Globalization plugin to parse the value
+            //        var val = Globalize.parseFloat(value);
+            //        return this.optional(element) || (
+            //            val >= param[0] && val <= param[1]);
+            //    }
+            //});
             $.validator.methods.date = function (value, element) {
                 return this.optional(element) ||
                     Globalize.parseDate(value) ||
@@ -110,6 +137,7 @@
             }
         </script>
     }
+    
 
 </body>
 </html>

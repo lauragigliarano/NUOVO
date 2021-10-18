@@ -8,12 +8,17 @@ using System.Web;
 using System.Web.Mvc;
 using NUOVO.DAL;
 using NUOVO.Models;
+using System.Globalization;
+using System.Threading;
 
 namespace NUOVO.Controllers
 {
     [Authorize]
+
+   
     public class CommessaController : Controller
     {
+
         private Context db = new Context();
 
         // GET: Commessa
@@ -41,6 +46,10 @@ namespace NUOVO.Controllers
         // GET: Commessa/Create
         public ActionResult Create()
         {
+            Console.WriteLine("CurrentCulture is {0}.", CultureInfo.CurrentCulture.Name);
+            // Creates and initializes the CultureInfo which uses the international sort.
+            CultureInfo myCIintl = new CultureInfo("it-IT", false);
+            Console.WriteLine("CurrentCulture is now {0}.", CultureInfo.CurrentCulture.Name);
             ViewBag.ClienteID = new SelectList(db.Cliente, "ClienteID", "RagioneSociale");
             return View();
         }
@@ -93,6 +102,10 @@ namespace NUOVO.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            Console.WriteLine("CurrentCulture is {0}.", CultureInfo.CurrentCulture.Name);
+            // Creates and initializes the CultureInfo which uses the international sort.
+            CultureInfo myCIintl = new CultureInfo("it-IT", false);
+            Console.WriteLine("CurrentCulture is now {0}.", CultureInfo.CurrentCulture.Name);
             ViewBag.ClienteID = new SelectList(db.Cliente, "ClienteID", "RagioneSociale", commessa.ClienteID);
             return View(commessa);
         }
