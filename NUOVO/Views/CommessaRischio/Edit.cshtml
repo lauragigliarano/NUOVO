@@ -12,120 +12,120 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
-<div class="form-horizontal">
-    <div class="pageSubtitle">
-        <h4>Commessa Rischio</h4>
-    </div>
-    <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    @Html.HiddenFor(model => model.Progressivo)
 
-    @Html.HiddenFor(model => model.CommessaID)
+    <div class="form-horizontal">
+        <div class="pageSubtitle">
+            <h4>Commessa Rischio</h4>
+        </div>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Progressivo)
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Progressivo, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Progressivo, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Progressivo, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.CommessaID)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Progressivo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Progressivo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Progressivo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CommessaID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("CommessaID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.CommessaID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NomeRischio, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NomeRischio, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NomeRischio, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DataRilevamento, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DataRilevamento, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DataRilevamento, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DataAggiornamento, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DataAggiornamento, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DataAggiornamento, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Voto, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Voto, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Voto, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Priorita, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Priorita, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Priorita, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Importo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Importo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Importo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Probabilita, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(m => m.Probabilita, new List<SelectListItem>
+                         { new SelectListItem{Text="Rare", Value="Rare"},
+                           new SelectListItem{Text="Unlikely", Value="Unlikely"},
+                           new SelectListItem{Text="Possible", Value="Possible"},
+                           new SelectListItem{Text="Almost certain", Value="Almost certain"}}, "Please select")
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Impatto, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(m => m.Impatto, new List<SelectListItem>
+                      { new SelectListItem{Text="Insignificante", Value="Insignificante"},
+                        new SelectListItem{Text="Minor", Value="Minor"},
+                        new SelectListItem{Text="Moderate", Value="Moderate"},
+                        new SelectListItem{Text="Major", Value="Major"},
+                        new SelectListItem{Text="Catastrophic", Value="Catastrophic"}}, "Please select")
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Strategia, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(m => m.Strategia, new List<SelectListItem>
+                      { new SelectListItem{Text="Avoid", Value="Avoid"},
+                        new SelectListItem{Text="Contain", Value="Contain"},
+                        new SelectListItem{Text="Transfer", Value="Transfer"}}, "Please select")
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
         </div>
     </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.CommessaID, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownList("CommessaID", null, htmlAttributes: new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.CommessaID, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.NomeRischio, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.NomeRischio, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.NomeRischio, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.DataRilevamento, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.DataRilevamento, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.DataRilevamento, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.DataAggiornamento, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.DataAggiornamento, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.DataAggiornamento, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.Voto, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Voto, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Voto, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.Priorita, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Priorita, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Priorita, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.Importo, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Importo, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Importo, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.Probabilita, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownListFor(m => m.Probabilita, new List<SelectListItem>
-                     { new SelectListItem{Text="Rare", Value="Rare"},
-                       new SelectListItem{Text="Unlikely", Value="Unlikely"},
-                       new SelectListItem{Text="Possible", Value="Possible"},
-                       new SelectListItem{Text="Almost certain", Value="Almost certain"}}, "Please select")
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.Impatto, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownListFor(m => m.Impatto, new List<SelectListItem>
-                  { new SelectListItem{Text="Insignificante", Value="Insignificante"},
-                    new SelectListItem{Text="Minor", Value="Minor"},
-                    new SelectListItem{Text="Moderate", Value="Moderate"},
-                    new SelectListItem{Text="Major", Value="Major"},
-                    new SelectListItem{Text="Catastrophic", Value="Catastrophic"}}, "Please select")
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.Strategia, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownListFor(m => m.Strategia, new List<SelectListItem>
-                  { new SelectListItem{Text="Avoid", Value="Avoid"},
-                    new SelectListItem{Text="Contain", Value="Contain"},
-                    new SelectListItem{Text="Transfer", Value="Transfer"}}, "Please select")
-        </div>
-    </div>
-
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Save" class="btn btn-default" />
-        </div>
-    </div>
-</div>
 }
 
 <div>
@@ -133,5 +133,41 @@
 </div>
 
 @section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            var rischio = $("#Progressivo").val();
+            var commessa = $("#CommessaID").val();
+            $.ajax({
+                url: "/CommessaRischio/SetData",
+                type: "POST",
+                contentType: 'application/json; charset=UTF-8',
+                data: JSON.stringify({numero : rischio, commessa : commessa}),
+                success: function (json) {
+                    var data = json.annoR + "-" + json.meseR + "-" + json.giornoR;
+                    console.log(data);
+                    $("#DataRilevamento").val(data);
+                },
+                error: function (err) {
+                    alert(err)
+                }
+            });
+
+            $.ajax({
+                url: "/CommessaRischio/SetDataOdierna",
+                type: "POST",
+                contentType: 'application/json; charset=UTF-8',
+                data: JSON.stringify(),
+                success: function (json) {
+                    var data = json.anno + "-" + json.mese + "-" + json.giorno;
+                    $("#DataAggiornamento").val(data);
+                },
+                error: function (err) {
+                    alert(err)
+                }
+            });
+        });
+
+    </script>
+
 }

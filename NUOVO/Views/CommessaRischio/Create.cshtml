@@ -30,7 +30,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.CommessaID, "CommessaID", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.DropDownList("CommessaID", null, htmlAttributes: new { @class = "form-control" })
+            @Html.DropDownList("CommessaID", null, htmlAttributes: new { @class = "form-control select" })
             @Html.ValidationMessageFor(model => model.CommessaID, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -129,3 +129,58 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+
+@section Scripts{
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            var commessa = $("#CommessaID").val();
+            $.ajax({
+                url: "/CommessaRischio/SetDataOdierna",
+                type: "POST",
+                contentType: 'application/json; charset=UTF-8',
+                data: JSON.stringify(),
+                success: function (json) {
+                    var today = json.anno + "-" + json.mese + "-" + json.giorno;
+                    //var tomorrow = json.anno + "-" + json.mese + "-" + (json.giorno+1);
+                $("#DataRilevamento").val(today);
+                //$("#DataAggiornamento").val(tomorrow);
+            },
+                error: function (err) {
+                    alert(err)
+                }
+            });
+
+            $.ajax({
+                url: "/CommessaRischio/GetNumeroRilevamento",
+                type: "POST",
+                contentType: 'application/json; charset=UTF-8',
+                data: JSON.stringify({ CommessaID: commessa }),
+                success: function (json) {
+                    $("#Progressivo").val(json.numero);
+                },
+                error: function (err) {
+                    alert(err)
+                }
+            });
+        });
+
+
+        $(".select").change(function () {
+            var commessa = $("#CommessaID").val();
+            $.ajax({
+                url: "/CommessaRischio/GetNumeroRilevamento",
+                type: "POST",
+                contentType: 'application/json; charset=UTF-8',
+                data: JSON.stringify({ CommessaID: commessa }),
+                success: function (json) {
+                    $("#Progressivo").val(json.numero);
+                },
+                error: function (err) {
+                    alert(err)
+                }
+            });
+        });
+    </script>
+
+}

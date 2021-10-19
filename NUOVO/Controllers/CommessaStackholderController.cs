@@ -160,5 +160,27 @@ namespace NUOVO.Controllers
             return Json(new { giorno, mese, anno });
         }
 
+        [HttpPost]
+        public JsonResult SetRilevamento(int CommessaID, int StackholderID, int NumeroRilevamento)
+        {
+            CommessaStackholder commessaStackholder = db.CommessaStackholders.Where(q => q.NumeroRilevamentoID == NumeroRilevamento && q.CommessaID == CommessaID && q.StackholderID == StackholderID)
+                .FirstOrDefault();
+            string giornoR = commessaStackholder.DataRilevamento.Day.ToString();
+            string meseR = commessaStackholder.DataRilevamento.Month.ToString();
+            string annoR = commessaStackholder.DataRilevamento.Year.ToString();
+
+            if (commessaStackholder.DataRilevamento.Month < 10)
+            {
+                meseR = "0" + meseR;
+            }
+
+            if (commessaStackholder.DataRilevamento.Day < 10)
+            {
+                giornoR = "0" + giornoR;
+            }
+
+            return Json(new { giornoR, meseR, annoR });
+        }
+
     }
 }

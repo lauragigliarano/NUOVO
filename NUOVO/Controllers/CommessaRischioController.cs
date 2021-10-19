@@ -145,5 +145,49 @@ namespace NUOVO.Controllers
             base.Dispose(disposing);
         }
 
+        [HttpPost]
+        public JsonResult SetDataOdierna()
+        {
+            int giorno = DateTime.Now.Day;
+            int mese = DateTime.Now.Month;
+            int anno = DateTime.Now.Year;
+
+            return Json(new { giorno, mese, anno });
+        }
+
+        [HttpPost]
+        public JsonResult SetData(int numero, int commessa )
+        {
+            CommessaRischio rischio = db.CommessaRischio.Where(q => q.Progressivo == numero && q.CommessaID == commessa).FirstOrDefault();
+            string giornoR = rischio.DataRilevamento.Day.ToString();
+            string meseR = rischio.DataRilevamento.Month.ToString();
+            string annoR = rischio.DataRilevamento.Year.ToString();
+
+            if (rischio.DataRilevamento.Month < 10)
+            {
+                meseR = "0" + meseR;
+            }
+
+            if (rischio.DataRilevamento.Day < 10)
+            {
+                giornoR = "0" + giornoR;
+            }
+
+            return Json(new { giornoR, meseR, annoR });
+        }
+
+
+        [HttpPost]
+        public JsonResult GetNumeroRilevamento(int CommessaID)
+        {
+            int numero;
+            CommessaRischio rischio = db.CommessaRischio.Where(q => q.CommessaID == CommessaID).OrderByDescending(q => q.Progressivo).FirstOrDefault();
+            if (rischio != null)
+            {
+                numero = rischio.Progressivo + 1;
+            }
+            else numero = 1;
+            return Json(new { numero });
+        }
     }
 }

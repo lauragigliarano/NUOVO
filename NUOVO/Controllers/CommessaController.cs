@@ -152,5 +152,28 @@ namespace NUOVO.Controllers
 
             return Json(new { numero });
         }
+
+
+        [HttpPost]
+        public JsonResult SetInizio(int CommessaID)
+        {
+            Commessa commessa = db.Commessa.Where(q => q.CommessaID == CommessaID)
+                .FirstOrDefault();
+            string giornoR = commessa.DataInizio.Day.ToString();
+            string meseR = commessa.DataInizio.Month.ToString();
+            string annoR = commessa.DataInizio.Year.ToString();
+
+            if (commessa.DataInizio.Month < 10)
+            {
+                meseR = "0" + meseR;
+            }
+
+            if (commessa.DataInizio.Day < 10)
+            {
+                giornoR = "0" + giornoR;
+            }
+
+            return Json(new { giornoR, meseR, annoR });
+        }
     }
 }
