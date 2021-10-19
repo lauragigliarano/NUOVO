@@ -229,9 +229,9 @@
     <Compile Include="Migrations\202110060949499_Migrazione2.Designer.cs">
       <DependentUpon>202110060949499_Migrazione2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202110180716513_Migrazione1.cs" />
-    <Compile Include="Migrations\202110180716513_Migrazione1.Designer.cs">
-      <DependentUpon>202110180716513_Migrazione1.cs</DependentUpon>
+    <Compile Include="Migrations\202110181044318_Migrazione1.cs" />
+    <Compile Include="Migrations\202110181044318_Migrazione1.Designer.cs">
+      <DependentUpon>202110181044318_Migrazione1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\ConfigurationA.cs" />
     <Compile Include="Migrations\ConfigurationB.cs" />
@@ -369,8 +369,8 @@
     <EmbeddedResource Include="Migrations\202110060949499_Migrazione2.resx">
       <DependentUpon>202110060949499_Migrazione2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202110180716513_Migrazione1.resx">
-      <DependentUpon>202110180716513_Migrazione1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202110181044318_Migrazione1.resx">
+      <DependentUpon>202110181044318_Migrazione1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

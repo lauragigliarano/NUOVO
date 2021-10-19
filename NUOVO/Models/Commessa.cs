@@ -27,7 +27,7 @@ namespace NUOVO.Models
         public DateTime DataInizio { get; set; }
 
         [DateGreaterThan("DataInizio")]
-        [DataType(DataType.Date)]
+        //[DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Data Fine")]
         public DateTime? DataFine { get; set; }
@@ -39,6 +39,7 @@ namespace NUOVO.Models
         public virtual Cliente Cliente { get; set; }
 
         public virtual ICollection<CommessaStackholder> CommessaStackholders { get; set; }
+        public virtual ICollection<CommessaRischio> CommessaRischio{ get; set; }
 
     }
 }

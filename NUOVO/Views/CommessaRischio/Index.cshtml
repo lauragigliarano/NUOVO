@@ -4,6 +4,7 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 <div class="pageTitle">
     <span>Gestione Rischi</span>
 </div>
@@ -11,360 +12,128 @@
 <button>
     @Html.ActionLink("Create New", "Create")
 </button>
-<table class="table">
-    <tr class="thead">
-        <th>
-            @Html.DisplayNameFor(model => model.NomeRischio)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Commessa.Descrizione)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Progressivo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DataRilevamento)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DataAggiornamento)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Voto)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Priorita)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Importo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Probabilita)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Impatto)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Strategia)
-        </th>
-        <th></th>
-    </tr>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.NomeRischio)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Commessa.Descrizione)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Progressivo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DataRilevamento)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DataAggiornamento)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Voto)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Priorita)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Importo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Probabilita)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Impatto)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Strategia)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Progressivo }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Progressivo }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Progressivo })
-            </td>
+
+<div style="overflow-x: auto; width: 100%;">
+    <table class="table">
+        <tr class="thead">
+            <th>
+                @Html.DisplayNameFor(model => model.NomeRischio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Commessa.Descrizione)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Progressivo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataRilevamento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataAggiornamento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Voto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Priorita)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Importo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Probabilita)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Impatto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Strategia)
+            </th>
+            <th></th>
         </tr>
-    }
-
-</table>
-
-@{ 
-    Console.Write("ciao");
-    Console.WriteLine("ciao");
-
-}
- 
-<table>
-    <tr>
-        <th class="vuota"></th>
-        <th class="title" colspan="6">Likelihood</th>
-    </tr>
-    <tr>
-        <td class="primo">Impact</td>
-        <td>Rare</td>
-        <td>Unlikely</td>
-        <td>Possible</td>
-        <td>Likely</td>
-        <td>Almost certain</td>
-    </tr>
-    <tr>
-        <td>Catastrophic</td>
-
-        <td>
-            @{
-                List<string> rischi = new List<string>();
-
-                rischi = Model.Where(q => q.Impatto == "Catastrophic").Where(q => q.Probabilita == "Rare").Select(q => q.NomeRischio).ToList();
-
-            }
-
-            @String.Join(" , ", rischi)
-        </td>
-        <td>
-            @{
-                rischi = Model.Where(q => q.Impatto == "Catastrophic").Where(q => q.Probabilita == "Unlikely").Select(q => q.NomeRischio).ToList();
-
-            }
-
-            @String.Join(" , ", rischi)
-        </td>
-        <td>
-            @{
-                rischi = Model.Where(q => q.Impatto == "Catastrophic").Where(q => q.Probabilita == "Possible").Select(q => q.NomeRischio).ToList();
-
-            }
-
-            @String.Join(" , ", rischi)
-        </td>
-        <td>
-            @{
-                rischi = Model.Where(q => q.Impatto == "Catastrophic").Where(q => q.Probabilita == "Likely").Select(q => q.NomeRischio).ToList();
-
-            }
-
-            @String.Join(" , ", rischi)
-        </td>
-        <td>
-            @{
-                rischi = Model.Where(q => q.Impatto == "Catastrophic").Where(q => q.Probabilita == "Almost certain").Select(q => q.NomeRischio).ToList();
-
-            }
-
-            @String.Join(" , ", rischi)
-        </td>
-    </tr>
-    <tr>
-        <td>Major</td>
-        <td>
-            @{
-                rischi = Model.Where(q => q.Impatto == "Major").Where(q => q.Probabilita == "Rare").Select(q => q.NomeRischio).ToList();
-
-            }
-
-            @String.Join(" , ", rischi)
-        </td>
-        <td>
-            @{
-                rischi = Model.Where(q => q.Impatto == "Major").Where(q => q.Probabilita == "Unlikely").Select(q => q.NomeRischio).ToList();
-
-            }
-
-            @String.Join(" , ", rischi)
-        </td>
-        <td>
-            @{
-                rischi = Model.Where(q => q.Impatto == "Major").Where(q => q.Probabilita == "Possible").Select(q => q.NomeRischio).ToList();
-
-            }
-
-            @String.Join(" , ", rischi)
-        </td>
-        <td>
-            @{
-                rischi = Model.Where(q => q.Impatto == "Major").Where(q => q.Probabilita == "Likely").Select(q => q.NomeRischio).ToList();
-
-            }
-
-            @String.Join(" , ", rischi)
-        </td>
-        <td>
-            @{
-                rischi = Model.Where(q => q.Impatto == "Major").Where(q => q.Probabilita == "Almost certain").Select(q => q.NomeRischio).ToList();
-
-            }
-
-            @String.Join(" , ", rischi)
-        </td>
-    </tr>
-    <tr>
-        <td>Moderate</td>
-        <td>
-            @{
-                rischi = Model.Where(q => q.Impatto == "Moderate").Where(q => q.Probabilita == "Rare").Select(q => q.NomeRischio).ToList();
-
-            }
-
-            @String.Join(" , ", rischi)
-        </td>
-        <td>
-            @{
-                rischi = Model.Where(q => q.Impatto == "Moderate").Where(q => q.Probabilita == "Unlikely").Select(q => q.NomeRischio).ToList();
-
-            }
-
-            @String.Join(" , ", rischi)
-        </td>
-        <td>
-            @{
-                rischi = Model.Where(q => q.Impatto == "Moderate").Where(q => q.Probabilita == "Possible").Select(q => q.NomeRischio).ToList();
-
-            }
-
-            @String.Join(" , ", rischi)
-        </td>
-        <td>
-            @{
-                rischi = Model.Where(q => q.Impatto == "Moderate").Where(q => q.Probabilita == "Likely").Select(q => q.NomeRischio).ToList();
-
-            }
-
-            @String.Join(" , ", rischi)
-        </td>
-        <td>
-            @{
-                rischi = Model.Where(q => q.Impatto == "Moderate").Where(q => q.Probabilita == "Almost certain").Select(q => q.NomeRischio).ToList();
-
-            }
-
-            @String.Join(" , ", rischi)
-        </td>
-    </tr>
-    <tr>
-        <td>Minor</td>
-        <td>
-            @{
-                rischi = Model.Where(q => q.Impatto == "Minor").Where(q => q.Probabilita == "Rare").Select(q => q.NomeRischio).ToList();
-
-            }
-
-            @String.Join(" , ", rischi)
-        </td>
-        <td>
-            @{
-                rischi = Model.Where(q => q.Impatto == "Minor").Where(q => q.Probabilita == "Unlikely").Select(q => q.NomeRischio).ToList();
-
-            }
-
-            @String.Join(" , ", rischi)
-        </td>
-        <td>
-            @{
-                rischi = Model.Where(q => q.Impatto == "Minor").Where(q => q.Probabilita == "Possible").Select(q => q.NomeRischio).ToList();
-
-            }
-
-            @String.Join(" , ", rischi)
-        </td>
-        <td>
-            @{
-                rischi = Model.Where(q => q.Impatto == "Minor").Where(q => q.Probabilita == "Likely").Select(q => q.NomeRischio).ToList();
-
-            }
-
-            @String.Join(" , ", rischi)
-        </td>
-        <td>
-            @{
-                rischi = Model.Where(q => q.Impatto == "Minor").Where(q => q.Probabilita == "Almost certain").Select(q => q.NomeRischio).ToList();
-
-            }
-
-            @String.Join(" , ", rischi)
-        </td>
-    </tr>
-    <tr>
-        <td>Insignificant</td>
-        <td id="prova">
-            @{
-                rischi = Model.Where(q => q.Impatto == "Insignificant").Where(q => q.Probabilita == "Rare").Select(q => q.NomeRischio).ToList();
-
-            }
-
-            @String.Join(" , ", rischi)
-        </td>
-        <td>
-            @{
-                rischi = Model.Where(q => q.Impatto == "Insignificant").Where(q => q.Probabilita == "Unlikely").Select(q => q.NomeRischio).ToList();
-
-            }
-
-            @String.Join(" , ", rischi)
-        </td>
-        <td>
-            @{
-                rischi = Model.Where(q => q.Impatto == "Insignificant").Where(q => q.Probabilita == "Possible").Select(q => q.NomeRischio).ToList();
-
-            }
-
-            @String.Join(" , ", rischi)
-        </td>
-        <td>
-            @{
-                rischi = Model.Where(q => q.Impatto == "Insignificant").Where(q => q.Probabilita == "Likely").Select(q => q.NomeRischio).ToList();
-
-            }
-
-            @String.Join(" , ", rischi)
-        </td>
-        <td>
-            @{
-                rischi = Model.Where(q => q.Impatto == "Insignificant").Where(q => q.Probabilita == "Almost certain").Select(q => q.NomeRischio).ToList();
-
-            }
-
-            @String.Join(" , ", rischi)
-        </td>
-    </tr>
-</table>
 
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
 
-    @*<script type="text/javascript">
-            $(document).ready(function () {
-                var impatto = "Minor";
-                var probabilita = "Rare";
-                var nome = $("#NomeRischio").val();
-                $.ajax({
-                    url: "/CommessaRischio/SetTabella",
-                    type: "POST",
-                    contentType: 'application/json; charset=UTF-8',
-                    data: JSON.stringify({ impatto: impatto, probabilita: probabilita, nome: nome }),
-                    success: function (json) {
-                        var riga = json.riga;
-                        var colonna = json.colonna;
-                        if (colonna == 1 && riga == 1) {
-                            console.log(riga + "ciaoooo" + colonna + probabilita);
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NomeRischio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Commessa.Descrizione)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Progressivo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataRilevamento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataAggiornamento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Voto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Priorita)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Importo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Probabilita)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Impatto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Strategia)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Progressivo }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Progressivo }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Progressivo })
+                </td>
+            </tr>
+        }
 
+
+
+    </table>
+</div>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+
+        @*<script type="text/javascript">
+                $(document).ready(function () {
+                    var impatto = "Minor";
+                    var probabilita = "Rare";
+                    var nome = $("#NomeRischio").val();
+                    $.ajax({
+                        url: "/CommessaRischio/SetTabella",
+                        type: "POST",
+                        contentType: 'application/json; charset=UTF-8',
+                        data: JSON.stringify({ impatto: impatto, probabilita: probabilita, nome: nome }),
+                        success: function (json) {
+                            var riga = json.riga;
+                            var colonna = json.colonna;
+                            if (colonna == 1 && riga == 1) {
+                                console.log(riga + "ciaoooo" + colonna + probabilita);
+
+                            }
+                            if (colonna == 1 && riga == 4) {
+                                console.log(riga + "ciaoooo" + colonna + probabilita);
+                                $("#prova").html(nome);
+                            }
+                            /*   $("#DataRilevamento").val(today);*/
+                        },
+                        error: function (err) {
+                            alert(err)
                         }
-                        if (colonna == 1 && riga == 4) {
-                            console.log(riga + "ciaoooo" + colonna + probabilita);
-                            $("#prova").html(nome);
-                        }
-                        /*   $("#DataRilevamento").val(today);*/
-                    },
-                    error: function (err) {
-                        alert(err)
-                    }
+                    });
                 });
-            });
-        </script>*@
-}
+            </script>*@
+    }

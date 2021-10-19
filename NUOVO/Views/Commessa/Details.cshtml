@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="pageTitle">
@@ -64,8 +65,242 @@
             @Html.DisplayFor(model => model.Importo)
         </dd>
     </dl>
+
+
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.CommessaID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+
+<table class="incroci">
+    <tr>
+        <th class="vuota"></th>
+        <th class="title" colspan="6">Likelihood</th>
+    </tr>
+    <tr>
+        <td class="blu primo">Impact</td>
+        <td class="blu">Rare</td>
+        <td class="blu">Unlikely</td>
+        <td class="blu">Possible</td>
+        <td class="blu">Likely</td>
+        <td class="blu">Almost certain</td>
+    </tr>
+    <tr>
+        <td class="blu">Catastrophic</td>
+
+        <td class="giallo">
+            @{
+                List<string> rischi = new List<string>();
+                rischi = Model.CommessaRischio.Where(q => q.Impatto == "Catastrophic").Where(q => q.Probabilita == "Rare").Select(q => q.NomeRischio).ToList();
+            }
+            @String.Join(" , ", rischi)
+        </td>
+
+        <td class="giallo">
+            @{
+                rischi = Model.CommessaRischio.Where(q => q.Impatto == "Catastrophic").Where(q => q.Probabilita == "Unlikely").Select(q => q.NomeRischio).ToList();
+
+            }
+
+            @String.Join(" , ", rischi)
+        </td>
+        <td class="arancio">
+            @{
+                rischi = Model.CommessaRischio.Where(q => q.Impatto == "Catastrophic").Where(q => q.Probabilita == "Possible").Select(q => q.NomeRischio).ToList();
+
+            }
+
+            @String.Join(" , ", rischi)
+        </td>
+        <td class="rosso">
+            @{
+                rischi = Model.CommessaRischio.Where(q => q.Impatto == "Catastrophic").Where(q => q.Probabilita == "Likely").Select(q => q.NomeRischio).ToList();
+
+            }
+
+            @String.Join(" , ", rischi)
+        </td>
+        <td class="rosso" data-fancybox href="#modifica">
+            @{
+                rischi = Model.CommessaRischio.Where(q => q.Impatto == "Catastrophic").Where(q => q.Probabilita == "Almost certain").Select(q => q.NomeRischio).ToList();
+
+            }
+
+            @String.Join(" , ", rischi)
+
+        </td>
+    </tr>
+    <tr>
+        <td class="blu">Major</td>
+        <td class="verde">
+            @{
+                rischi = Model.CommessaRischio.Where(q => q.Impatto == "Major").Where(q => q.Probabilita == "Rare").Select(q => q.NomeRischio).ToList();
+
+            }
+
+            @String.Join(" , ", rischi)
+        </td>
+        <td class="giallo">
+            @{
+                rischi = Model.CommessaRischio.Where(q => q.Impatto == "Major").Where(q => q.Probabilita == "Unlikely").Select(q => q.NomeRischio).ToList();
+
+            }
+
+            @String.Join(" , ", rischi)
+        </td>
+        <td class="giallo">
+            @{
+                rischi = Model.CommessaRischio.Where(q => q.Impatto == "Major").Where(q => q.Probabilita == "Possible").Select(q => q.NomeRischio).ToList();
+
+            }
+
+            @String.Join(" , ", rischi)
+        </td>
+        <td class="arancio">
+            @{
+                rischi = Model.CommessaRischio.Where(q => q.Impatto == "Major").Where(q => q.Probabilita == "Likely").Select(q => q.NomeRischio).ToList();
+
+            }
+
+            @String.Join(" , ", rischi)
+        </td>
+        <td class="rosso">
+            @{
+                rischi = Model.CommessaRischio.Where(q => q.Impatto == "Major").Where(q => q.Probabilita == "Almost certain").Select(q => q.NomeRischio).ToList();
+
+            }
+
+            @String.Join(" , ", rischi)
+        </td>
+    </tr>
+    <tr>
+        <td class="blu">Moderate</td>
+        <td class="verde">
+            @{
+                rischi = Model.CommessaRischio.Where(q => q.Impatto == "Moderate").Where(q => q.Probabilita == "Rare").Select(q => q.NomeRischio).ToList();
+
+            }
+
+            @String.Join(" , ", rischi)
+        </td>
+        <td class="giallo">
+            @{
+                rischi = Model.CommessaRischio.Where(q => q.Impatto == "Moderate").Where(q => q.Probabilita == "Unlikely").Select(q => q.NomeRischio).ToList();
+
+            }
+
+            @String.Join(" , ", rischi)
+        </td>
+        <td class="giallo">
+            @{
+                rischi = Model.CommessaRischio.Where(q => q.Impatto == "Moderate").Where(q => q.Probabilita == "Possible").Select(q => q.NomeRischio).ToList();
+
+            }
+
+            @String.Join(" , ", rischi)
+        </td>
+        <td class="giallo">
+            @{
+                rischi = Model.CommessaRischio.Where(q => q.Impatto == "Moderate").Where(q => q.Probabilita == "Likely").Select(q => q.NomeRischio).ToList();
+
+            }
+
+            @String.Join(" , ", rischi)
+        </td>
+        <td class="arancio">
+            @{
+                rischi = Model.CommessaRischio.Where(q => q.Impatto == "Moderate").Where(q => q.Probabilita == "Almost certain").Select(q => q.NomeRischio).ToList();
+
+            }
+
+            @String.Join(" , ", rischi)
+        </td>
+    </tr>
+    <tr>
+        <td class="blu">Minor</td>
+        <td class="azzurro">
+            @{
+                rischi = Model.CommessaRischio.Where(q => q.Impatto == "Minor").Where(q => q.Probabilita == "Rare").Select(q => q.NomeRischio).ToList();
+
+            }
+
+            @String.Join(" , ", rischi)
+        </td>
+        <td class="verde">
+            @{
+                rischi = Model.CommessaRischio.Where(q => q.Impatto == "Minor").Where(q => q.Probabilita == "Unlikely").Select(q => q.NomeRischio).ToList();
+
+            }
+
+            @String.Join(" , ", rischi)
+        </td>
+        <td class="giallo">
+            @{
+                rischi = Model.CommessaRischio.Where(q => q.Impatto == "Minor").Where(q => q.Probabilita == "Possible").Select(q => q.NomeRischio).ToList();
+
+            }
+
+            @String.Join(" , ", rischi)
+        </td>
+        <td class="giallo">
+            @{
+                rischi = Model.CommessaRischio.Where(q => q.Impatto == "Minor").Where(q => q.Probabilita == "Likely").Select(q => q.NomeRischio).ToList();
+
+            }
+
+            @String.Join(" , ", rischi)
+        </td>
+        <td class="giallo">
+            @{
+                rischi = Model.CommessaRischio.Where(q => q.Impatto == "Minor").Where(q => q.Probabilita == "Almost certain").Select(q => q.NomeRischio).ToList();
+
+            }
+
+            @String.Join(" , ", rischi)
+        </td>
+    </tr>
+    <tr>
+        <td class="blu">Insignificant</td>
+        <td class="azzurro">
+            @{
+                rischi = Model.CommessaRischio.Where(q => q.Impatto == "Insignificant").Where(q => q.Probabilita == "Rare").Select(q => q.NomeRischio).ToList();
+
+            }
+
+            @String.Join(" , ", rischi)
+        </td>
+        <td class="azzurro">
+            @{
+                rischi = Model.CommessaRischio.Where(q => q.Impatto == "Insignificant").Where(q => q.Probabilita == "Unlikely").Select(q => q.NomeRischio).ToList();
+
+            }
+
+            @String.Join(" , ", rischi)
+        </td>
+        <td class="verde">
+            @{
+                rischi = Model.CommessaRischio.Where(q => q.Impatto == "Insignificant").Where(q => q.Probabilita == "Possible").Select(q => q.NomeRischio).ToList();
+
+            }
+
+            @String.Join(" , ", rischi)
+        </td>
+        <td class="verde">
+            @{
+                rischi = Model.CommessaRischio.Where(q => q.Impatto == "Insignificant").Where(q => q.Probabilita == "Likely").Select(q => q.NomeRischio).ToList();
+
+            }
+
+            @String.Join(" , ", rischi)
+        </td>
+        <td class="giallo">
+            @{
+                rischi = Model.CommessaRischio.Where(q => q.Impatto == "Insignificant").Where(q => q.Probabilita == "Almost certain").Select(q => q.NomeRischio).ToList();
+
+            }
+
+            @String.Join(" , ", rischi)
+        </td>
+    </tr>
+</table>
