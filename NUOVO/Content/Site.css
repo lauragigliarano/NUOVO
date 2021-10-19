@@ -1,7 +1,6 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
-​​​
 
 
 a.navbar-brand {
@@ -10,8 +9,37 @@ a.navbar-brand {
     word-break: break-all;
 }
 
+.incroci th {
+    background-color: #357797;
+    color: white;
+}
+.incroci td {
+    border: 2px solid #124c65;
+    color: white;
+}
+.incroci .rosso {
+    background-color: #d81921;
+}
+.incroci .arancio {
+    background-color: #ec8b20;
+}
+.incroci .giallo {
+    background-color: #f8b71b;
+}
+.incroci .verde {
+    background-color: #86b62e;
+}
+.incroci .azzurro {
+    background-color: #289f89;
+}
+.incroci .blu {
+    background-color: #357797;
+    color: white;   
+}
+
 th.title {
     border-left: none !important;
+    text-align: center;
 }
 th.vuota {
     border-right: none !important;
@@ -19,6 +47,7 @@ th.vuota {
 }
 td.primo {
     border-top: none !important;
+    border-left: none !important;
 }
 
 /* Provide sufficient contrast against white background */
@@ -773,7 +802,16 @@ table {
     width: 100%;
     margin-top: 40px;
     border-radius: 6px;
+    overflow-x: auto;
+    border-collapse: collapse;
+    border-spacing: 0;
 }
+
+    table tbody {
+        overflow-x: auto;
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
 
     table tr th {
         background-color: #F4F6FA;

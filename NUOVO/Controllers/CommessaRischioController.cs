@@ -44,10 +44,6 @@ namespace NUOVO.Controllers
         // GET: CommessaRischio/Create
         public ActionResult Create()
         {
-            Console.WriteLine("CurrentCulture is {0}.", CultureInfo.CurrentCulture.Name);
-            // Creates and initializes the CultureInfo which uses the international sort.
-            CultureInfo myCIintl = new CultureInfo("it-IT", false);
-            Console.WriteLine("CurrentCulture is now {0}.", CultureInfo.CurrentCulture.Name);
 
             ViewBag.CommessaID = new SelectList(db.Commessa, "CommessaID", "Descrizione");
             return View();
@@ -100,10 +96,7 @@ namespace NUOVO.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            Console.WriteLine("CurrentCulture is {0}.", CultureInfo.CurrentCulture.Name);
-            // Creates and initializes the CultureInfo which uses the international sort.
-            CultureInfo myCIintl = new CultureInfo("it-IT", false);
-            Console.WriteLine("CurrentCulture is now {0}.", CultureInfo.CurrentCulture.Name);
+           
             ViewBag.CommessaID = new SelectList(db.Commessa, "CommessaID", "Descrizione", commessaRischio.CommessaID);
             return View(commessaRischio);
         }

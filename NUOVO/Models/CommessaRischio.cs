@@ -29,7 +29,7 @@ namespace NUOVO.Models
         [Required]
         public string NomeRischio { get; set; }
 
-        [DataType(DataType.Date)]
+        //[DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Data Rilevamento")]
         public DateTime DataRilevamento { get; set; }
