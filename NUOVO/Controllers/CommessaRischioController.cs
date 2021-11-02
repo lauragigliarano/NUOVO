@@ -141,9 +141,19 @@ namespace NUOVO.Controllers
         [HttpPost]
         public JsonResult SetDataOdierna()
         {
-            int giorno = DateTime.Now.Day;
-            int mese = DateTime.Now.Month;
-            int anno = DateTime.Now.Year;
+            string giorno = DateTime.Now.Day.ToString();
+            string mese = DateTime.Now.Month.ToString();
+            string anno = DateTime.Now.Year.ToString();
+
+            if (DateTime.Now.Month < 10)
+            {
+                mese = "0" + mese;
+            }
+
+            if (DateTime.Now.Day < 10)
+            {
+                giorno = "0" + giorno;
+            }
 
             return Json(new { giorno, mese, anno });
         }
